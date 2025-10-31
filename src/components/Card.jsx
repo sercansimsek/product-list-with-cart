@@ -3,7 +3,7 @@ import cartImg from "../assets/images/icon-add-to-cart.svg";
 
 export const Card = () => {
   return (
-    <div className="w-[327px] h-[319px]">
+    <div className="w-[327px] h-[319px] font-redHat">
       <div className="flex flex-col justify-center items-center ">
         <img src={waffleImg} alt="waffle" className="h-[212px] rounded-md" />
         <div className="flex gap-3 bg-[#fff] text-black border border-rose400 p-3 w-[160px] rounded-3xl -m-[25px]">
@@ -13,9 +13,11 @@ export const Card = () => {
       </div>
 
       <div className="flex flex-col gap-2 mt-[41px]">
-        <span>Waffle</span>
-        <span>Waffle with Berries</span>
-        <span>$6.50</span>
+        <span className="font-thin text-rose500 text-sm">Waffle</span>
+        <span className="font-semibold text-rose900 text-md">
+          Waffle with Berries
+        </span>
+        <span className="text-red text-md font-semibold">$6.50</span>
       </div>
     </div>
   );

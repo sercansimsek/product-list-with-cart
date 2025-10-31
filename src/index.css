@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
 @theme {
+  --font-redHat: "Red Hat Text", sans-serif;
+
+  --color-red: oklch(0.5547 0.1844 35.48);
+  --color-green: oklch(0.6385 0.1302 163.27);
+
+  --color-rose50: oklch(0.9844 0.0043 48.7);
+  --color-rose100: oklch(0.9514 0.0085 35.98);
+  --color-rose300: oklch(0.7725 0.0341 37.6);
   --color-rose400: oklch(0.6638 0.0448 27.04);
+  --color-rose500: oklch(0.5331 0.0491 34.49);
+  --color-rose900: oklch(0.2016 0.041 37.95);
 }
