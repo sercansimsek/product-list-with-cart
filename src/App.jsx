@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { dataFromServer } from "./data";
 
-import { Card } from "./components/Card";
+import { CardList } from "./components/CardList";
 
 export const App = () => {
   const [data, setData] = useState([]);
@@ -12,7 +12,7 @@ export const App = () => {
 
   return (
     <>
-      <Card />
+      <CardList datas={data} />
     </>
   );
 };
