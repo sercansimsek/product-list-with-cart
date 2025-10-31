@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+@theme {
+  --color-rose400: oklch(0.6638 0.0448 27.04);
+}
