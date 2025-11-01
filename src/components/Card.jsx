@@ -27,8 +27,8 @@ export const Card = ({ data }) => {
             <img
               src={waffleImg}
               alt={data.name}
-              className={cn("h-[212px] md:h-[212px] rounded-md",{
-                'border-2 border-red': isAdded
+              className={cn("h-[212px] md:h-[212px] rounded-md", {
+                "border-2 border-red": isAdded,
               })}
             />
           </picture>
@@ -60,16 +60,20 @@ export const Card = ({ data }) => {
             >
               <button
                 type="button"
-                className="flex items-center justify-center w-5 h-5 border-2 rounded-full cursor-pointer hover:bg-white hover:bg-[url(../assets/images/decrement-red.svg)]"
-                onClick={() => decrementCount()}
+                className="flex items-center justify-center w-5 h-5 border-2 rounded-full cursor-pointer hover:bg-white hover:bg-[url(./assets/images/decrement-red.svg)]"
+                onClick={decrementCount}
               >
-                <img src={decrementIcon} alt="decrement icon" />
+                <img
+                  src={decrementIcon}
+                  alt="decrement icon"
+                  className="w-[10px]  "
+                />
               </button>
               <span className="font-semibold text-sm">{productCount}</span>
               <button
                 type="button"
-                className="flex items-center justify-center w-5 h-5 border-2 rounded-full cursor-pointer"
-                onClick={() => incrementCount()}
+                className="flex items-center justify-center w-5 h-5 border-2 rounded-full cursor-pointer hover:bg-white hover:text-red"
+                onClick={incrementCount}
               >
                 <img src={incrementIcon} alt="increment icon" />
               </button>
