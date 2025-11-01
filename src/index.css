@@ -3,6 +3,7 @@
 @theme {
   --font-redHat: "Red Hat Text", sans-serif;
 
+  --color-white: oklch(1 0 0);
   --color-red: oklch(0.5547 0.1844 35.48);
   --color-green: oklch(0.6385 0.1302 163.27);
 
