@@ -25,16 +25,16 @@ export const Card = ({ data }) => {
   };
   return (
     <>
-      <div className="w-[327px] h-[319px] md:w-[213px] lg:w-[250px] ont-redHat">
-        <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col gap-4 w-[327px] h-[319px] md:w-[213px] lg:w-[250px] font-redHat">
+        <div className="flex flex-col justify-center items-center mb-[25px]">
           <div className="relative">
             <picture>
-              <source media="(min-width:1024px)" srcSet={data.image.desktop} />
+              <source media="(min-width:1024px)" srcSet={data.image.desktop}/>
               <source media="(min-width:768px)" srcSet={data.image.tablet} />
               <img
                 src={image.mobile}
                 alt={data.name}
-                className={cn("h-[212px] rounded-md", {
+                className={cn("rounded-md", {
                   "border-2 border-red": isAdded,
                 })}
               />
@@ -79,7 +79,7 @@ export const Card = ({ data }) => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-2 mt-[41px]">
+        <div className="flex flex-col gap-1">
           <span className="font-thin text-rose500 text-sm">
             {data.category}
           </span>
