@@ -23,7 +23,7 @@ export const Card = ({ data }) => {
   };
   return (
     <>
-      <div className="flex flex-col gap-4 w-[327px] md:w-[213px] lg:w-[250px] font-redHat">
+      <div className="flex flex-col gap-4 w-[327px] md:w-[213px] lg:w-[250px] font-redHat ">
         <div className="flex flex-col justify-center items-center mb-[25px]">
           <div className="relative">
             <picture>
