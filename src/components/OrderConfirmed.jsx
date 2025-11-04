@@ -3,7 +3,7 @@ import tiramisuImg from "../assets/images/image-tiramisu-mobile.jpg";
 
 export const OrderConfirmed = () => {
   return (
-    <div className="flex flex-col justify-center gap-6 w-[327px] md:w-[688px] lg:w-[384px] p-6 font-redHat">
+    <div className="flex flex-col justify-center gap-6 w-[327px] md:w-[688px] lg:w-[592px] p-6 font-redHat">
       <div className="flex flex-col gap-2">
         <img
           src={orderConfirmed}
@@ -42,7 +42,7 @@ export const OrderConfirmed = () => {
       </div>
 
       <button className="bg-red p-3 rounded-3xl text-white cursor-pointer font-semibold">
-        Confirm Order
+        Start New Order
       </button>
     </div>
   );

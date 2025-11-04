@@ -9,7 +9,7 @@ export const Cart = () => {
         <div className="flex flex-col gap-2 text-md">
           <span className="text-rose900 font-medium">Classic Tiramisu</span>
           <div className="flex gap-3">
-            <span className="">1x</span>{" "}
+            <span className="text-red font-semibold">1x</span>{" "}
             <span className="text-rose500 font-light">@ $5.50</span>{" "}
             <span className="text-rose500 font-semibold">$5.50</span>
           </div>
