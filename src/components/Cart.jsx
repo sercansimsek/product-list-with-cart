@@ -3,13 +3,13 @@ import carbonNeutral from "../assets/images/icon-carbon-neutral.svg";
 
 export const Cart = () => {
   return (
-    <div className="flex flex-col justify-center gap-6 w-[327px] p-6 font-redHat">
+    <div className="flex flex-col justify-center gap-6 w-[327px] md:w-[688px] lg:w-[384px] p-6 font-redHat">
       <span className="font-semibold text-2xl text-red">Your Cart (7)</span>
       <div className="flex justify-between items-center">
         <div className="flex flex-col gap-2 text-md">
           <span className="text-rose900 font-medium">Classic Tiramisu</span>
           <div className="flex gap-3">
-            <span className="text-red font-semibold">1x</span>{" "}
+            <span className="">1x</span>{" "}
             <span className="text-rose500 font-light">@ $5.50</span>{" "}
             <span className="text-rose500 font-semibold">$5.50</span>
           </div>

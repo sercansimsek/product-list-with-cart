@@ -3,6 +3,8 @@ import { dataFromServer } from "./data";
 
 import { CardList } from "./components/CardList";
 import { Cart } from "./components/Cart";
+import { OrderConfirmed } from "./components/OrderConfirmed";
+
 
 export const App = () => {
   const [data, setData] = useState([]);
@@ -15,6 +17,7 @@ export const App = () => {
     <>
       <CardList datas={data} />
       <Cart />
+      <OrderConfirmed />
     </>
   );
 };
