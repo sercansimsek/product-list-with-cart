@@ -23,8 +23,8 @@ export const Card = ({ data }) => {
   };
   return (
     <>
-      <div className="flex flex-col gap-4 w-[327px] md:w-[213px] lg:w-[250px] font-redHat ">
-        <div className="flex flex-col justify-center items-center mb-[25px]">
+      <div className="flex flex-col gap-4 w-[327px] h-[319px] lg:h-[347px] md:w-[213px] lg:w-[250px] font-redHat ">
+        <div className="flex flex-col justify-center items-center mb-[20px]">
           <div className="relative">
             <picture>
               <source media="(min-width:1024px)" srcSet={data.image.desktop} />
@@ -75,7 +75,7 @@ export const Card = ({ data }) => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col justify-center gap-1">
           <span className="font-thin text-rose500 text-sm">
             {data.category}
           </span>
