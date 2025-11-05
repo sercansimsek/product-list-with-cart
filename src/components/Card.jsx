@@ -68,7 +68,7 @@ export const Card = ({ data }) => {
                   className="flex items-center justify-center w-5 h-5 border-2 rounded-full cursor-pointer hover-bg-white hover:bg-[url('./assets/images/increment-red.svg')] hover:bg-[length:16px_16px] hover:bg-center hover:bg-no-repeat"
                   onClick={incrementCount}
                 >
-                  <img src={incrementIcon} alt="increment icon"/>
+                  <img src={incrementIcon} alt="increment icon" />
                 </button>
               </div>
             )}
