@@ -1,14 +1,17 @@
 import cartImg from "../assets/images/icon-add-to-cart.svg";
 import incrementIcon from "../assets/images/icon-increment-quantity.svg";
 import decrementIcon from "../assets/images/icon-decrement-quantity.svg";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import cn from "classnames";
+import { ProductCountContext } from "./ContextApi/ProductCountContext";
 
 export const Card = ({ data }) => {
   const [isAdded, setIsAdded] = useState(false);
-  const [productCount, setProductCount] = useState(1);
 
+  const count = useContext(ProductCountContext);
+  const { productCount, setProductCount } = count;
   const { image } = data;
+
   const incrementCount = () => {
     setProductCount((prev) => prev + 1);
   };
