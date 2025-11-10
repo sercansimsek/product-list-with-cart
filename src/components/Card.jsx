@@ -9,6 +9,18 @@ export const Card = ({ data, selectedItem, onHandleSelected }) => {
   const [productCount, setProductCount] = useState(1);
   const { image } = data;
 
+  // Sync local state with parent-selected item
+  useEffect(() => {
+    if (selectedItem) {
+      setIsAdded(true);
+      setProductCount(selectedItem.quantity ?? 1);
+    } else {
+      // If parent clears selection (e.g. cart cleared), reset local state
+      setIsAdded(false);
+      setProductCount(1);
+    }
+  }, [selectedItem]);
+
   const incrementCount = () => {
     const newCount = productCount + 1;
     setProductCount(newCount);
@@ -21,7 +33,10 @@ export const Card = ({ data, selectedItem, onHandleSelected }) => {
   };
 
   const decrementCount = () => {
-    const newCount = productCount - 1;
+    // Prevent decrementing below 0
+    if (productCount <= 0) return;
+
+    const newCount = Math.max(productCount - 1, 0);
     setProductCount(newCount);
 
     if (newCount === 0) {
@@ -58,10 +73,13 @@ export const Card = ({ data, selectedItem, onHandleSelected }) => {
                   "absolute left-1/2 transform -translate-x-1/2 -bottom-[25px] z-10 flex items-center justify-center gap-3 bg-white text-black border border-rose400 p-3 w-[160px] rounded-3xl cursor-pointer hover:text-red hover:border-red"
                 }
                 onClick={() => {
+                  // Ensure we add with at least 1 quantity
+                  const qtyToAdd = productCount < 1 ? 1 : productCount;
+                  setProductCount(qtyToAdd);
                   setIsAdded(true);
                   onHandleSelected({
                     ...data,
-                    quantity: productCount,
+                    quantity: qtyToAdd,
                   });
                 }}
               >
