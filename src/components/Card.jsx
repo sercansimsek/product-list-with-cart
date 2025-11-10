@@ -1,27 +1,37 @@
 import cartImg from "../assets/images/icon-add-to-cart.svg";
 import incrementIcon from "../assets/images/icon-increment-quantity.svg";
 import decrementIcon from "../assets/images/icon-decrement-quantity.svg";
-import { useContext, useState } from "react";
+import { useState, useEffect } from "react";
 import cn from "classnames";
-import { ProductCountContext } from "./ContextApi/ProductCountContext";
 
-export const Card = ({ data }) => {
+export const Card = ({ data, selectedItem, onHandleSelected }) => {
   const [isAdded, setIsAdded] = useState(false);
-
-  const count = useContext(ProductCountContext);
-  const { productCount, setProductCount } = count;
+  const [productCount, setProductCount] = useState(1);
   const { image } = data;
 
   const incrementCount = () => {
-    setProductCount((prev) => prev + 1);
+    const newCount = productCount + 1;
+    setProductCount(newCount);
+    if (isAdded) {
+      onHandleSelected({
+        ...data,
+        quantity: newCount,
+      });
+    }
   };
 
   const decrementCount = () => {
-    setProductCount((prev) => prev - 1);
+    const newCount = productCount - 1;
+    setProductCount(newCount);
 
-    if (productCount <= 1) {
+    if (newCount === 0) {
       setIsAdded(false);
-      setProductCount(1);
+      onHandleSelected({ name: data.name, remove: true });
+    } else {
+      onHandleSelected({
+        ...data,
+        quantity: newCount,
+      });
     }
   };
   return (
@@ -30,8 +40,8 @@ export const Card = ({ data }) => {
         <div className="flex flex-col justify-center items-center mb-[20px]">
           <div className="relative">
             <picture>
-              <source media="(min-width:1024px)" srcSet={data.image.desktop} />
-              <source media="(min-width:768px)" srcSet={data.image.tablet} />
+              <source media="(min-width:1024px)" srcSet={image.desktop} />
+              <source media="(min-width:768px)" srcSet={image.tablet} />
               <img
                 src={image.mobile}
                 alt={data.name}
@@ -47,7 +57,13 @@ export const Card = ({ data }) => {
                 className={
                   "absolute left-1/2 transform -translate-x-1/2 -bottom-[25px] z-10 flex items-center justify-center gap-3 bg-white text-black border border-rose400 p-3 w-[160px] rounded-3xl cursor-pointer hover:text-red hover:border-red"
                 }
-                onClick={() => setIsAdded(true)}
+                onClick={() => {
+                  setIsAdded(true);
+                  onHandleSelected({
+                    ...data,
+                    quantity: productCount,
+                  });
+                }}
               >
                 <img src={cartImg} alt="cart" />
                 <span className="text-sm font-semibold">Add to Cart</span>
