@@ -37,16 +37,19 @@ export const Card = ({ data, selectedItem, onHandleSelected }) => {
     }
   }, [selectedItem]);
 
-  const incrementCount = () => {
-    const newCount = productCount + 1;
-    setProductCount(newCount);
-    if (isAdded) {
-      onHandleSelected({
-        ...data,
-        quantity: newCount,
-      });
-    }
-  };
+const incrementCount = () => {
+  const newCount = productCount + 1;
+  setProductCount(newCount);
+
+  if (!isAdded && newCount > 0) {
+    setIsAdded(true); // Re-enable added state when count increases from zero
+  }
+
+  onHandleSelected({
+    ...data,
+    quantity: newCount,
+  });
+};
 
   const decrementCount = () => {
     // Prevent decrementing below 0
@@ -124,7 +127,7 @@ export const Card = ({ data, selectedItem, onHandleSelected }) => {
                 </span>
                 <button
                   type="button"
-                  className="flex items-center justify-center w-5 h-5 border-2 rounded-full cursor-pointer hover-bg-white hover:bg-[url('./assets/images/increment-red.svg')] hover:bg-[length:16px_16px] hover:bg-center hover:bg-no-repeat"
+                  className="flex items-center justify-center w-5 h-5 border-2 rounded-full cursor-pointer hover:bg-white hover:bg-[url('./assets/images/increment-red.svg')] hover:bg-[length:16px_16px] hover:bg-center hover:bg-no-repeat"
                   onClick={incrementCount}
                 >
                   <img src={incrementIcon} alt="increment icon" />

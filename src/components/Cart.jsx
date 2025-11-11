@@ -3,22 +3,26 @@ import carbonNeutral from "../assets/images/icon-carbon-neutral.svg";
 import emptyIllustration from "../assets/images/illustration-empty-cart.svg";
 
 export const Cart = ({ cartItems, onRemoveItem, onConfirm }) => {
-  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  const totalItems = cartItems.reduce(
+    (sum, item) => sum + (item.quantity || 0), // default quantity to 0 if missing
+    0
+  );
+
   const totalPrice = cartItems.reduce(
-    (sum, item) => sum + item.price * item.quantity,
+    (sum, item) => sum + item.price * (item.quantity || 0), // same here
     0
   );
 
   // Empty cart state
   if (!cartItems || cartItems.length === 0) {
     return (
-      <div className="flex flex-col justify-center items-center gap-6 w-[327px] md:w-[688px] lg:w-[384px] p-6 font-redHat bg-white rounded-2xl">
+      <aside className="flex flex-col justify-center items-center gap-6 w-[327px] md:w-[688px] lg:w-[384px] p-6 font-redHat bg-white rounded-2xl">
         <span className="font-semibold text-2xl text-red">Your Cart (0)</span>
         <img src={emptyIllustration} alt="empty cart" className="w-48 h-48" />
         <span className="text-rose500 text-center">
           Your added items will appear here
         </span>
-      </div>
+      </aside>
     );
   }
 
