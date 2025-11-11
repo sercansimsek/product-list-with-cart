@@ -4,13 +4,25 @@ import decrementIcon from "../assets/images/icon-decrement-quantity.svg";
 import { useState, useEffect } from "react";
 import cn from "classnames";
 
+// Preload all image URLs from the images folder (Vite)
+const IMAGES = import.meta.glob("/src/assets/images/*.{jpg,png,svg}", {
+  eager: true,
+  as: "url",
+});
+
+// Helper to resolve image path to URL
+const getImageUrl = (imagePath) => {
+  if (!imagePath) return null;
+  const parts = imagePath.split("/");
+  const filename = parts[parts.length - 1];
+  const key = `/src/assets/images/${filename}`;
+  return IMAGES[key] || null;
+};
+
 export const Card = ({ data, selectedItem, onHandleSelected }) => {
   const [isAdded, setIsAdded] = useState(false);
   const [productCount, setProductCount] = useState(1);
   const { image } = data;
-
-  console.log(data);
-  
 
   // Sync local state with parent-selected item
   useEffect(() => {
@@ -58,10 +70,16 @@ export const Card = ({ data, selectedItem, onHandleSelected }) => {
         <div className="flex flex-col justify-center items-center mb-[20px]">
           <div className="relative">
             <picture>
-              <source media="(min-width:1024px)" srcSet={`./${image.desktop}`} />
-              <source media="(min-width:768px)" srcSet={`./${image.tablet}`} />
+              <source
+                media="(min-width:1024px)"
+                srcSet={getImageUrl(image.desktop)}
+              />
+              <source
+                media="(min-width:768px)"
+                srcSet={getImageUrl(image.tablet)}
+              />
               <img
-                src={`./${image.mobile}`}
+                src={getImageUrl(image.mobile)}
                 alt={data.name}
                 className={cn("rounded-md", {
                   "border-2 border-red": isAdded,
