@@ -9,6 +9,9 @@ export const Card = ({ data, selectedItem, onHandleSelected }) => {
   const [productCount, setProductCount] = useState(1);
   const { image } = data;
 
+  console.log(data);
+  
+
   // Sync local state with parent-selected item
   useEffect(() => {
     if (selectedItem) {
@@ -55,10 +58,10 @@ export const Card = ({ data, selectedItem, onHandleSelected }) => {
         <div className="flex flex-col justify-center items-center mb-[20px]">
           <div className="relative">
             <picture>
-              <source media="(min-width:1024px)" srcSet={image.desktop} />
-              <source media="(min-width:768px)" srcSet={image.tablet} />
+              <source media="(min-width:1024px)" srcSet={`./${image.desktop}`} />
+              <source media="(min-width:768px)" srcSet={`./${image.tablet}`} />
               <img
-                src={image.mobile}
+                src={`./${image.mobile}`}
                 alt={data.name}
                 className={cn("rounded-md", {
                   "border-2 border-red": isAdded,

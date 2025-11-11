@@ -30,6 +30,7 @@ export const OrderConfirmed = ({ onClose, cartItems = [], totalPrice = 0 }) => {
           const imgPath =
             item?.image?.thumbnail ||
             item?.image?.mobile ||
+            item?.image?.tablet ||
             item?.image?.desktop ||
             null;
           let imgSrc = null;

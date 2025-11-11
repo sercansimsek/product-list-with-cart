@@ -50,6 +50,4 @@ Users should be able to:
 ## Author
 
 - GitHub - [sercansimsek](https://github.com/sercansimsek)
-- LInkedin - [@sercansimsek](www.linkedin.com/in/sercan-simsek593152
-
-)
+- LInkedin - [@sercansimsek](www.linkedin.com/in/sercan-simsek593152)
