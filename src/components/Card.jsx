@@ -7,7 +7,8 @@ import cn from "classnames";
 // Preload all image URLs from the images folder (Vite)
 const IMAGES = import.meta.glob("/src/assets/images/*.{jpg,png,svg}", {
   eager: true,
-  as: "url",
+  query: "?url",
+  import: "default",
 });
 
 // Helper to resolve image path to URL
