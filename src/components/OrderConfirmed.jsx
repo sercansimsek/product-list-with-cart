@@ -3,7 +3,8 @@ import orderConfirmed from "../assets/images/icon-order-confirmed.svg";
 // Preload all image URLs from the images folder (Vite)
 const IMAGES = import.meta.glob("/src/assets/images/*.{jpg,png,svg}", {
   eager: true,
-  as: "url",
+  query: "?url",
+  import: 'default'
 });
 
 export const OrderConfirmed = ({ onClose, cartItems = [], totalPrice = 0 }) => {
